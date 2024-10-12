@@ -1,14 +1,25 @@
 {
   "name": "authify-tokenize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir dist"
   },
-  "keywords": ["authify", "ghulam ali", "mern backend auth"],
-  "author": "",
+ "keywords": [
+    "MERN",
+    "JWT",
+    "Authentication",
+    "Authorization",
+    "Middleware",
+    "Express",
+    "Lightweight",
+    "authify-tokenize",
+    "API Security",
+    "Node.js"
+],
+  "author": "Ghulam Ali Khan",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
