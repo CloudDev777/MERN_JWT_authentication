@@ -1,12 +1,13 @@
 {
-  "name": "ghulam-ali-auth-library",
+  "name": "authify-tokenize",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir dist"
   },
-  "keywords": [],
+  "keywords": ["authify", "ghulam ali", "mern backend auth"],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -17,6 +18,10 @@
     "mongoose": "^8.7.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
+    "@babel/register": "^7.25.7",
     "nodemon": "^3.1.7"
   }
 }

@@ -70,9 +70,6 @@ const signout = async (req, res) => {
 // Get the authenticated user's profile
 const getProfile = async (req, res) => {
     try {
-        // Log the request for debugging (but do not send it as JSON)
-        console.log('User ID from token:', req.userId);
-        
         // Get the user ID from the token
         const user = await User.findById(req.userId).select('-password'); // Exclude password from response
         if (!user) {

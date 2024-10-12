@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');  // MongoDB connection logic
 const authRoutes = require('./routes/authRoutes');
+const authMiddleware = require('./middlewares/authMiddleware');
 
 // Function to initialize the library with user configuration
 const initAuthLibrary = (config) => {
@@ -27,4 +28,4 @@ const initAuthLibrary = (config) => {
 
 
 // Export functions for user’s application
-module.exports =  initAuthLibrary;
+module.exports =  {initAuthLibrary, authMiddleware};
