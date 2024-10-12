@@ -1,5 +1,6 @@
 // src/controllers/authController.js
 const User = require('../models/User');
+const BlacklistToken = require('../models/BlackListToken');
 const jwt = require('jsonwebtoken');
 
 // Register a new user
@@ -37,6 +38,8 @@ const login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
+
+
         const token = generateToken(user._id, req.jwtSecret);
         res.json({ user, token });
     } catch (err) {
@@ -45,10 +48,22 @@ const login = async (req, res) => {
 };
 
 
-// Signout a user
-const signout = (req, res) => {
-    // Instruct the client to remove the token
-    res.status(200).json({ message: 'Successfully signed out' });
+const signout = async (req, res) => {
+    const token = req.headers['authorization']?.split(' ')[1]; // Extract the token from the request
+
+    if (!token) {
+        return res.status(400).json({ message: 'No token provided' });
+    }
+
+    try {
+        // Add the token to the blacklist
+        const blacklistedToken = new BlacklistToken({ token });
+        await blacklistedToken.save();
+
+        return res.status(200).json({ message: 'User successfully signed out' });
+    } catch (err) {
+        return res.status(500).json({ message: 'Server error', error: err.message });
+    }
 };
 
 // Get the authenticated user's profile
@@ -73,7 +88,7 @@ const getProfile = async (req, res) => {
 
 // Generate a JWT token
 const generateToken = (id, secret) => {
-    return jwt.sign({ id }, secret, { expiresIn: '24h' });
+    return jwt.sign({ id }, secret, { expiresIn: '6h' });
 };
 
 module.exports = { register, login, signout, getProfile };
