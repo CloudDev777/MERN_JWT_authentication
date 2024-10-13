@@ -44,6 +44,59 @@ app.listen(PORT, () => {
 });
 ```
 
+# API Documentation
+
+## Endpoints
+
+### 1. Login
+
+- **Path**: `{Base_URL}/login`
+- **Method**: `POST`
+- **Payload**:
+    ```json
+    {
+        "email": "john@example.com",
+        "password": "password_here"
+    }
+    ```
+
+---
+
+### 2. Register
+
+- **Path**: `{Base_URL}/register`
+- **Method**: `POST`
+- **Payload**:
+    ```json
+    {
+        "email": "john@example.com",
+        "password": "password_here",
+        "name": "John Doe",
+        "phone": "123-456-7890"
+    }
+    ```
+
+---
+
+### 3. Signout
+
+- **Path**: `{Base_URL}/signout`
+- **Method**: `POST`
+
+---
+
+### 4. Get User Info (Authenticated)
+
+- **Path**: `{Base_URL}/me`
+- **Method**: `GET`
+- **Headers**:
+    - `Authorization`: `Bearer <your_token_here>`
+
+---
+
+Replace `{Base_URL}` with your actual base URL in your project.
+
+
 ## Middleware Function
 
 ```bash
