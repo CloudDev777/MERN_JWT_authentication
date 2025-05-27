@@ -55,7 +55,7 @@ app.listen(PORT, () => {
 - **Payload**:
     ```json
     {
-        "email": "john@example.com",
+        "email": "your email",
         "password": "password_here"
     }
     ```
@@ -69,9 +69,9 @@ app.listen(PORT, () => {
 - **Payload**:
     ```json
     {
-        "email": "john@example.com",
+        "email": "your email",
         "password": "password_here",
-        "name": "John Doe",
+        "name": "Your Name",
         "phone": "123-456-7890"
     }
     ```
